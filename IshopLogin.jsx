@@ -9,22 +9,21 @@ export default function IShopLogin()
 {
     let navigate = useNavigate();
     const [users, setUsers] = useState([]);
-    const [cookies, setCookie, removeCookie] = useCookies();
     const formik = useFormik({
         initialValues: {
-            UserId:'',
+            Email:'',
             Password:'' 
         },
         onSubmit : values => {
             for(var user of users) {
-                if(user.UserId==values.UserId && user.Password==values.Password){
-                    setCookie("userid", user.UserId);
+                if(user.Email==values.Email && user.Password==values.Password){
+                   
                     navigate("/dashboard");
                     break;
                 } else {
                     navigate("/errorpage");
                 }
-            }
+            } 
         }
     })
 
@@ -40,8 +39,8 @@ export default function IShopLogin()
             <h2>User Login</h2>
             <form onSubmit={formik.handleSubmit}>
                 <dl>
-                    <dt>User Id</dt>
-                    <dd><input value={formik.values.UserId} name="UserId" onChange={formik.handleChange} type="text"/></dd>
+                    <dt>Email</dt>
+                    <dd><input value={formik.values.Email} name="Email" onChange={formik.handleChange} type="text"/></dd>
                     <dt>Password</dt>
                     <dd><input  value={formik.values.Password} name="Password" onChange={formik.handleChange} type="password"/></dd>
                 </dl>

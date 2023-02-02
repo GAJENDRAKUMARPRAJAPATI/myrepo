@@ -8,12 +8,10 @@ export default function IShopRegister()
     let navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
-            UserId:'',
             UserName:'',
+            Email:'',
             Password:'',
-            Age:0,
-            Mobile:'',
-            Subscribed:true,
+           
         },
         onSubmit : values => {
                $.ajax({
@@ -35,18 +33,13 @@ export default function IShopRegister()
             <h2>Register New User</h2>
             <form onSubmit={formik.handleSubmit}>
                 <dl>
-                    <dt>User Id</dt>
-                    <dd><input type="text" value={formik.values.UserId} onChange={formik.handleChange} name="UserId" /></dd>
                     <dt>User Name</dt>
-                    <dd><input type="text" value={formik.values.UserName} onChange={formik.handleChange} name="UserName"/></dd>
+                    <dd><input type="text" value={formik.values.UserName} onChange={formik.handleChange} name="UserName" /></dd>
+                    <dt>Email</dt>
+                    <dd><input type="text" value={formik.values.Email} onChange={formik.handleChange} name="Email"/></dd>
                     <dt>Password</dt>
                     <dd><input type="password" value={formik.values.Password} onChange={formik.handleChange} name="Password"/></dd>
-                    <dt>Age</dt>
-                    <dd><input type="number" value={formik.values.Age} onChange={formik.handleChange} name="Age"/></dd>
-                    <dt>Mobile</dt>
-                    <dd><input type="text" value={formik.values.Mobile} onChange={formik.handleChange} name="Mobile"/></dd>
-                    <dt>Subscription</dt>
-                    <dd className="form-switch"><input className="form-check-input" type="checkbox" checked={formik.values.Subscribed} onChange={formik.handleChange}  name="Subscribed"/> Yes </dd>
+                    
                 </dl>
                 <button className="btn btn-primary">Register</button>
                 <br />

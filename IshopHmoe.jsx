@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const IshopHome = () =>{
-    return(
+    return( 
         <>
          <h2>Shopping Home</h2>
          <Link to="/register">New Register</Link>
